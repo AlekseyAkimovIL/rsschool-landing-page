@@ -1,11 +1,18 @@
 <!doctype html>
 <html lang="en" data-theme="light">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coffee House — Menu / Coffee</title>
-    <link rel="stylesheet" href="css/reset.css" />
-    <link rel="stylesheet" href="css/style.css" />
+    <script>
+      // тема применяется до отрисовки страницы, чтобы не было «мигания»
+      try {
+        if (localStorage.getItem('theme') === 'dark') document.documentElement.dataset.theme = 'dark';
+      } catch (e) {}
+    </script>
+    <link rel="icon" type="image/svg+xml" href="img/icons/favicon.svg">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
   </head>
 
   <body>
@@ -18,8 +25,7 @@
             data-src="img/logo-{theme}.svg"
             alt="Coffee House Logo"
             width="100"
-            height="60"
-          />
+            height="60">
         </a>
 
         <nav class="header__nav" id="header-nav" aria-label="Main navigation">
@@ -44,8 +50,7 @@
                   data-src="img/icons/menu-icon-coffee-cup-{theme}.svg"
                   alt=""
                   width="20"
-                  height="20"
-                />
+                  height="20">
               </a>
             </li>
           </ul>
@@ -58,16 +63,14 @@
               type="button"
               data-theme-value="light"
               aria-label="Light theme"
-              aria-pressed="true"
-            ></button>
+              aria-pressed="true"></button>
 
             <button
               class="header__theme-btn header__theme-btn--moon"
               type="button"
               data-theme-value="dark"
               aria-label="Dark theme"
-              aria-pressed="false"
-            ></button>
+              aria-pressed="false"></button>
           </div>
 
           <button
@@ -75,8 +78,7 @@
             type="button"
             aria-label="Open menu"
             aria-expanded="false"
-            aria-controls="header-nav"
-          >
+            aria-controls="header-nav">
             <span></span>
             <span></span>
           </button>
@@ -88,8 +90,7 @@
               data-src="img/icons/menu-icon-coffee-cup-{theme}.svg"
               alt=""
               width="20"
-              height="20"
-            />
+              height="20">
           </a>
         </div>
       </div>
@@ -127,11 +128,10 @@
                 src="img/coffee-1.jpg"
                 alt="Irish coffee"
                 width="310"
-                height="310"
-              />
+                height="310">
               <div class="menu__card-body">
                 <div class="menu__card-info">
-                  <h3 class="menu__card-title">Irish coffee</h3>
+                  <h2 class="menu__card-title">Irish coffee</h2>
                   <p class="menu__card-text">
                     Fragrant black coffee with Jameson Irish whiskey and whipped milk
                   </p>
@@ -145,11 +145,10 @@
                 src="img/coffee-2.jpg"
                 alt="Kahlua coffee"
                 width="310"
-                height="310"
-              />
+                height="310">
               <div class="menu__card-body">
                 <div class="menu__card-info">
-                  <h3 class="menu__card-title">Kahlua coffee</h3>
+                  <h2 class="menu__card-title">Kahlua coffee</h2>
                   <p class="menu__card-text">
                     Classic coffee with milk and Kahlua liqueur under a cap of frothed milk
                   </p>
@@ -163,11 +162,10 @@
                 src="img/coffee-3.jpg"
                 alt="Honey raf"
                 width="310"
-                height="310"
-              />
+                height="310">
               <div class="menu__card-body">
                 <div class="menu__card-info">
-                  <h3 class="menu__card-title">Honey raf</h3>
+                  <h2 class="menu__card-title">Honey raf</h2>
                   <p class="menu__card-text">
                     Espresso with frothed milk, cream and aromatic honey
                   </p>
@@ -182,11 +180,10 @@
                 src="img/coffee-4.jpg"
                 alt="Ice cappuccino"
                 width="310"
-                height="310"
-              />
+                height="310">
               <div class="menu__card-body">
                 <div class="menu__card-info">
-                  <h3 class="menu__card-title">Ice cappuccino</h3>
+                  <h2 class="menu__card-title">Ice cappuccino</h2>
                   <p class="menu__card-text">
                     Cappuccino with soft thick foam in summer version with ice
                   </p>
@@ -201,11 +198,10 @@
                 src="img/coffee-5.jpg"
                 alt="Espresso"
                 width="310"
-                height="310"
-              />
+                height="310">
               <div class="menu__card-body">
                 <div class="menu__card-info">
-                  <h3 class="menu__card-title">Espresso</h3>
+                  <h2 class="menu__card-title">Espresso</h2>
                   <p class="menu__card-text">Classic black coffee</p>
                 </div>
                 <p class="menu__card-price">$4.50</p>
@@ -218,11 +214,10 @@
                 src="img/coffee-6.jpg"
                 alt="Latte"
                 width="310"
-                height="310"
-              />
+                height="310">
               <div class="menu__card-body">
                 <div class="menu__card-info">
-                  <h3 class="menu__card-title">Latte</h3>
+                  <h2 class="menu__card-title">Latte</h2>
                   <p class="menu__card-text">
                     Espresso coffee with the addition of steamed milk and dense milk foam
                   </p>
@@ -237,11 +232,10 @@
                 src="img/coffee-7.jpg"
                 alt="Latte macchiato"
                 width="310"
-                height="310"
-              />
+                height="310">
               <div class="menu__card-body">
                 <div class="menu__card-info">
-                  <h3 class="menu__card-title">Latte macchiato</h3>
+                  <h2 class="menu__card-title">Latte macchiato</h2>
                   <p class="menu__card-text">Espresso with frothed milk and chocolate</p>
                 </div>
                 <p class="menu__card-price">$5.50</p>
@@ -254,11 +248,10 @@
                 src="img/coffee-8.jpg"
                 alt="Coffee with cognac"
                 width="310"
-                height="310"
-              />
+                height="310">
               <div class="menu__card-body">
                 <div class="menu__card-info">
-                  <h3 class="menu__card-title">Coffee with cognac</h3>
+                  <h2 class="menu__card-title">Coffee with cognac</h2>
                   <p class="menu__card-text">Fragrant black coffee with cognac and whipped cream</p>
                 </div>
                 <p class="menu__card-price">$6.50</p>
@@ -285,21 +278,24 @@
                   class="footer__social footer__social--twitter"
                   href="https://twitter.com/"
                   aria-label="Twitter"
-                ></a>
+                  target="_blank"
+                  rel="noopener noreferrer"></a>
               </li>
               <li>
                 <a
                   class="footer__social footer__social--instagram"
                   href="https://www.instagram.com/"
                   aria-label="Instagram"
-                ></a>
+                  target="_blank"
+                  rel="noopener noreferrer"></a>
               </li>
               <li>
                 <a
                   class="footer__social footer__social--facebook"
                   href="https://www.facebook.com/"
                   aria-label="Facebook"
-                ></a>
+                  target="_blank"
+                  rel="noopener noreferrer"></a>
               </li>
             </ul>
           </div>
@@ -311,17 +307,23 @@
                 <a
                   class="footer__link footer__link--address"
                   href="https://www.google.com/maps/search/?api=1&query=8558+Green+Rd.,+LA"
-                >
+                  target="_blank"
+                  rel="noopener noreferrer">
+                  <img src="img/icons/pin-alt.svg" alt="" width="20" height="20">
                   8558 Green Rd., LA
                 </a>
               </li>
               <li>
                 <a class="footer__link footer__link--phone" href="tel:+16035550123">
+                  <img src="img/icons/phone.svg" alt="" width="20" height="20">
                   +1 (603) 555-0123
                 </a>
               </li>
               <li>
-                <p class="footer__link footer__link--hours">Mon–Sat: 9:00–23:00</p>
+                <p class="footer__link footer__link--hours">
+                  <img src="img/icons/clock.svg" alt="" width="20" height="20">
+                  Mon–Sat: 9:00–23:00
+                </p>
               </li>
             </ul>
           </div>
