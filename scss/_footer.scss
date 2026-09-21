@@ -2,9 +2,10 @@
 
 .footer {
   --footer-bg: #665f55;
-  --footer-line: #c1b6ad;
+  --footer-line: #c1b6ad; // рамка соцсетей
 
-  margin-top: 100px;
+  margin-top: 100px; // между секциями в макете 100px
+  padding-bottom: 40px; // под футером в макете 40px (padding надёжнее margin: не пропадает у последнего блока)
 }
 
 [data-theme="dark"] .footer {
@@ -23,6 +24,7 @@
   transition: background-color 0.3s ease;
 }
 
+// Две колонки одинаковой ширины
 .footer__offer,
 .footer__info {
   display: flex;
@@ -41,6 +43,7 @@
   line-height: 1.25;
 }
 
+// «It’s coffee time!» — курсив и акцентный цвет
 .footer__title-accent {
   font-style: italic;
   color: #b0907a;
@@ -69,6 +72,7 @@
     border-color 0.2s ease,
     color 0.2s ease;
 
+  // Иконка — маска из svg, поэтому её цвет задаётся через color
   &::before {
     content: "";
     width: 24px;
@@ -123,6 +127,7 @@
   list-style: none;
 }
 
+// Высота пункта 28px: 24px текст + 4px под линию (как ссылки в шапке)
 .footer__link {
   position: relative;
   display: inline-flex;
@@ -138,35 +143,15 @@
   text-decoration: none;
   white-space: nowrap;
 
-  &::before {
-    content: "";
+  // Иконка 20px: цвет самого svg (#e1d4c9) совпадает с цветом текста в футере
+  img {
+    display: block;
     flex-shrink: 0;
     width: 20px;
     height: 20px;
-    background-color: currentColor;
-    mask-repeat: no-repeat;
-    mask-position: center;
-    mask-size: contain;
-    -webkit-mask-repeat: no-repeat;
-    -webkit-mask-position: center;
-    -webkit-mask-size: contain;
   }
 
-  &--address::before {
-    mask-image: url(../img/icons/pin-alt.svg);
-    -webkit-mask-image: url(../img/icons/pin-alt.svg);
-  }
-
-  &--phone::before {
-    mask-image: url(../img/icons/phone.svg);
-    -webkit-mask-image: url(../img/icons/phone.svg);
-  }
-
-  &--hours::before {
-    mask-image: url(../img/icons/clock.svg);
-    -webkit-mask-image: url(../img/icons/clock.svg);
-  }
-
+  // Подчёркивание 2px при наведении — только у настоящих ссылок
   &::after {
     content: "";
     position: absolute;
