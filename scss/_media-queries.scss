@@ -1,0 +1,387 @@
+$laptop: 1279px;
+$tablet: 1024px;
+$mobile: 767px;
+
+@mixin laptop {
+  @media (max-width: $laptop) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: $tablet) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media (max-width: $mobile) {
+    @content;
+  }
+}
+
+.header__burger,
+.header__item--menu,
+.hero__button-icon,
+.menu__refresh {
+  display: none;
+}
+
+@include laptop {
+  .application__inner {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 100px;
+  }
+
+  .application__offer {
+    flex: none;
+  }
+
+  .application__img {
+    align-self: center;
+    width: 630px;
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+  }
+
+  .footer__inner {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 100px;
+    padding: 100px 60px;
+  }
+
+  .footer__offer,
+  .footer__info {
+    flex: none;
+  }
+}
+
+@include tablet {
+  // ----- Header -----
+  .header {
+    position: relative;
+    z-index: 100;
+  }
+
+  .header__logo,
+  .header__actions {
+    position: relative;
+    z-index: 2;
+  }
+
+  .header__actions .header__menu-link {
+    display: none;
+  }
+  .header__theme-btn {
+    width: 44px;
+    height: 44px;
+    background-size: 44px 44px;
+  }
+
+  .header__burger {
+    position: relative;
+    display: block;
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: 1px solid #665f55;
+    border-radius: 100px;
+    background-color: transparent;
+    color: #403f3d;
+    cursor: pointer;
+    transition:
+      border-color 0.3s ease,
+      color 0.3s ease;
+
+    span {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 16px;
+      height: 1.5px;
+      margin: -0.75px 0 0 -8px;
+      border-radius: 2px;
+      background-color: currentColor;
+      transition: transform 0.3s ease;
+    }
+
+    span:first-child {
+      transform: translateY(-4px);
+    }
+
+    span:last-child {
+      transform: translateY(4px);
+    }
+  }
+
+  .header--menu-open .header__burger {
+    span:first-child {
+      transform: rotate(45deg);
+    }
+
+    span:last-child {
+      transform: rotate(-45deg);
+    }
+  }
+
+  [data-theme="dark"] .header__burger {
+    border-color: #c1b6ad;
+    color: #e1d4c9;
+  }
+
+  // Бургер-меню
+  .header__nav {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    display: none;
+    flex: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 140px 40px 80px;
+    overflow-y: auto;
+    background-color: #e1d4c9;
+  }
+
+  [data-theme="dark"] .header__nav {
+    background-color: #292826;
+  }
+
+  .header--menu-open .header__nav {
+    display: flex;
+  }
+
+  body.is-menu-open {
+    overflow: hidden;
+  }
+
+  .header__list {
+    flex-direction: column;
+    align-items: center;
+    gap: 60px;
+  }
+
+  .header__item--menu {
+    display: block;
+    margin-top: 40px;
+  }
+
+  .header__nav .header__link,
+  .header__nav .header__menu-link {
+    padding-bottom: 0;
+    font-size: 32px;
+    line-height: 1.25;
+
+    &::after {
+      bottom: -4px;
+    }
+  }
+
+  .header__nav .header__menu-link {
+    display: inline-flex;
+    align-items: flex-start;
+    gap: 16px;
+
+    img {
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+  // ----- Hero -----
+  .hero__inner {
+    padding: 100px 60px;
+  }
+
+  .hero__button {
+    gap: 8px;
+  }
+
+  .hero__button-icon {
+    display: block;
+  }
+
+  .about__images {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .about__column {
+    display: contents;
+  }
+
+  .about__box--short {
+    display: none;
+  }
+
+  .menu__title {
+    max-width: none;
+  }
+
+  .menu__grid:not(.is-expanded) .menu__card:nth-child(n + 5) {
+    display: none;
+  }
+
+  .menu__refresh:not([hidden]) {
+    display: flex;
+  }
+}
+
+.menu__refresh {
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  width: 60px;
+  height: 60px;
+  padding: 0;
+  border: 1px solid #665f55;
+  border-radius: 100px;
+  background-color: transparent;
+  color: #403f3d;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+
+  &::before {
+    content: "";
+    width: 24px;
+    height: 24px;
+    background-color: currentColor;
+    mask: url(../img/icons/refresh.svg) center / contain no-repeat;
+    -webkit-mask: url(../img/icons/refresh.svg) center / contain no-repeat;
+  }
+
+  &:hover {
+    border-color: #665f55;
+    background-color: #665f55;
+    color: #e1d4c9;
+  }
+}
+
+[data-theme="dark"] .menu__refresh {
+  border-color: #c1b6ad;
+  color: #e1d4c9;
+
+  &:hover {
+    border-color: #665f55;
+    background-color: #665f55;
+  }
+}
+
+@include mobile {
+  .container {
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+
+  // ----- Header -----
+  .header__actions {
+    gap: 12px;
+  }
+
+  .header__nav {
+    justify-content: flex-start; //
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+
+  // ----- Hero -----
+  .hero__inner {
+    min-height: 0;
+    padding: 60px 16px;
+  }
+
+  .hero__offer {
+    width: 100%;
+  }
+
+  .hero__title {
+    font-size: 42px;
+    line-height: 1.15;
+  }
+
+  // ----- Choose -----
+  .choose__title {
+    font-size: 32px;
+  }
+
+  .choose__arrow {
+    display: none;
+  }
+
+  .choose__viewport {
+    min-width: 0;
+  }
+
+  .choose__content {
+    width: 100%;
+    max-width: 480px;
+  }
+
+  .choose__img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+  }
+
+  // ----- About -----
+  .about__title {
+    font-size: 32px;
+  }
+
+  .about__img {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: auto;
+    transform: none;
+  }
+
+  // ----- Application -----
+  .application__inner {
+    gap: 40px;
+  }
+
+  .application__title {
+    font-size: 32px;
+  }
+
+  .application__buttons {
+    flex-direction: column;
+  }
+
+  // ----- Footer -----
+  .footer__inner {
+    gap: 40px;
+    padding: 60px 16px;
+  }
+
+  .footer__title {
+    font-size: 32px;
+  }
+
+  // ----- Menu -----
+  .menu__title {
+    font-size: 32px;
+  }
+
+  .menu__tabs {
+    gap: 8px;
+  }
+
+  .menu__card {
+    max-width: 100%;
+  }
+
+  .menu__card-img {
+    width: 100%;
+  }
+}
