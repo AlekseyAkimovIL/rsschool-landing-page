@@ -1,0 +1,165 @@
+// Header
+
+.header {
+  padding: 20px 0; // макет: 20px сверху страницы и 20px между шапкой и hero
+}
+
+.header__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header__logo {
+  display: inline-block;
+
+  img {
+    display: block;
+    width: 100px;
+    height: 60px;
+  }
+}
+
+.header__nav {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  padding-right: 44px; // в макете справа от nav есть пустой блок 44px, он сдвигает меню влево на 22px
+}
+
+.header__list {
+  display: flex;
+  gap: 40px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.header__link,
+.header__menu-link {
+  position: relative;
+  padding-bottom: 4px;
+  font-family: var(--main-font);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #403f3d;
+  text-decoration: none;
+  transition: color 0.3s ease;
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -1px;
+    height: 2px;
+    background-color: currentColor;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+
+  &:hover::after,
+  &:focus-visible::after {
+    opacity: 1;
+  }
+}
+
+.header__link {
+  display: inline-block;
+}
+
+.header__menu-link {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.header__actions {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.header__theme-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 3px;
+  border: 1px solid #c1b6ad;
+  border-radius: 100px;
+  transition: border-color 0.3s ease;
+}
+
+.header__theme-btn {
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  outline: none;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+
+  &[aria-pressed="true"] {
+    cursor: default;
+  }
+}
+
+// Светлая тема
+[data-theme="light"] {
+  .header__theme-btn--sun {
+    background-image: url(../img/icons/light-theme-sun.svg);
+  }
+
+  .header__theme-btn--moon {
+    background-image: url(../img/icons/light-theme-moon.svg);
+
+    &:hover {
+      background-image: url(../img/icons/light-theme-moon-hover.svg);
+    }
+  }
+}
+
+[data-theme="dark"] {
+  body {
+    background-color: #292826;
+  }
+
+  .header__link,
+  .header__menu-link {
+    color: #e1d4c9;
+  }
+
+  .header__theme-toggle {
+    border-color: #665f55;
+  }
+
+  .header__theme-btn--sun {
+    background-image: url(../img/icons/dark-theme-sun.svg);
+
+    &:hover {
+      background-image: url(../img/icons/dark-theme-sun-hover.svg);
+    }
+  }
+
+  .header__theme-btn--moon {
+    background-image: url(../img/icons/dark-theme-moon.svg);
+  }
+}
+
+body {
+  transition: background-color 0.3s ease;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}

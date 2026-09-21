@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffee House — Menu / Coffee</title>
+    <script>
+      // тема применяется до отрисовки страницы, чтобы не было «мигания»
+      try {
+        if (localStorage.getItem('theme') === 'dark') document.documentElement.dataset.theme = 'dark';
+      } catch (e) {}
+    </script>
+    <link rel="icon" type="image/svg+xml" href="img/icons/favicon.svg">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <div class="header__container container">
+        <a class="header__logo" href="index.html">
+          <img
+            src="img/logo-light.svg"
+            data-src="img/logo-{theme}.svg"
+            alt="Coffee House Logo"
+            width="100"
+            height="60">
+        </a>
+
+        <nav class="header__nav" id="header-nav" aria-label="Main navigation">
+          <ul class="header__list">
+            <li class="header__item">
+              <a class="header__link" href="index.html#favorite-coffee">Favorite coffee</a>
+            </li>
+            <li class="header__item">
+              <a class="header__link" href="index.html#about">About</a>
+            </li>
+            <li class="header__item">
+              <a class="header__link" href="index.html#mobile-app">Mobile app</a>
+            </li>
+            <li class="header__item">
+              <a class="header__link" href="index.html#contact-us">Contact us</a>
+            </li>
+            <li class="header__item header__item--menu">
+              <a class="header__menu-link" href="menu-coffee.html">
+                Menu
+                <img
+                  src="img/icons/menu-icon-coffee-cup-light.svg"
+                  data-src="img/icons/menu-icon-coffee-cup-{theme}.svg"
+                  alt=""
+                  width="20"
+                  height="20">
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+        <div class="header__actions">
+          <div class="header__theme-toggle" role="group" aria-label="Color theme">
+            <button
+              class="header__theme-btn header__theme-btn--sun"
+              type="button"
+              data-theme-value="light"
+              aria-label="Light theme"
+              aria-pressed="true"></button>
+
+            <button
+              class="header__theme-btn header__theme-btn--moon"
+              type="button"
+              data-theme-value="dark"
+              aria-label="Dark theme"
+              aria-pressed="false"></button>
+          </div>
+
+          <button
+            class="header__burger"
+            type="button"
+            aria-label="Open menu"
+            aria-expanded="false"
+            aria-controls="header-nav">
+            <span></span>
+            <span></span>
+          </button>
+
+          <a class="header__menu-link" href="menu-coffee.html">
+            Menu
+            <img
+              src="img/icons/menu-icon-coffee-cup-light.svg"
+              data-src="img/icons/menu-icon-coffee-cup-{theme}.svg"
+              alt=""
+              width="20"
+              height="20">
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main content -->
+    <main>
+      <section class="menu" id="menu">
+        <div class="menu__container container">
+          <div class="menu__offer">
+            <h1 class="menu__title">
+              Behind each of our cups hides an
+              <span class="menu__title-accent">amazing surprise</span>
+            </h1>
+
+            <nav class="menu__tabs" aria-label="Menu categories">
+              <div class="menu__tab menu__tab--active" aria-current="page">
+                <span class="menu__tab-icon" aria-hidden="true">☕</span>
+                <span class="menu__tab-text">Coffee</span>
+              </div>
+              <a class="menu__tab" href="menu-tea.html">
+                <span class="menu__tab-icon" aria-hidden="true">🫖</span>
+                <span class="menu__tab-text">Tea</span>
+              </a>
+              <a class="menu__tab" href="menu-dessert.html">
+                <span class="menu__tab-icon" aria-hidden="true">🍰</span>
+                <span class="menu__tab-text">Dessert</span>
+              </a>
+            </nav>
+          </div>
+          <ul class="menu__grid">
+            <li class="menu__card">
+              <img
+                class="menu__card-img"
+                src="img/coffee-1.jpg"
+                alt="Irish coffee"
+                width="310"
+                height="310">
+              <div class="menu__card-body">
+                <div class="menu__card-info">
+                  <h2 class="menu__card-title">Irish coffee</h2>
+                  <p class="menu__card-text">
+                    Fragrant black coffee with Jameson Irish whiskey and whipped milk
+                  </p>
+                </div>
+                <p class="menu__card-price">$7.00</p>
+              </div>
+            </li>
+            <li class="menu__card">
+              <img
+                class="menu__card-img"
+                src="img/coffee-2.jpg"
+                alt="Kahlua coffee"
+                width="310"
+                height="310">
+              <div class="menu__card-body">
+                <div class="menu__card-info">
+                  <h2 class="menu__card-title">Kahlua coffee</h2>
+                  <p class="menu__card-text">
+                    Classic coffee with milk and Kahlua liqueur under a cap of frothed milk
+                  </p>
+                </div>
+                <p class="menu__card-price">$7.00</p>
+              </div>
+            </li>
+            <li class="menu__card">
+              <img
+                class="menu__card-img"
+                src="img/coffee-3.jpg"
+                alt="Honey raf"
+                width="310"
+                height="310">
+              <div class="menu__card-body">
+                <div class="menu__card-info">
+                  <h2 class="menu__card-title">Honey raf</h2>
+                  <p class="menu__card-text">
+                    Espresso with frothed milk, cream and aromatic honey
+                  </p>
+                </div>
+                <p class="menu__card-price">$5.50</p>
+              </div>
+            </li>
+
+            <li class="menu__card">
+              <img
+                class="menu__card-img"
+                src="img/coffee-4.jpg"
+                alt="Ice cappuccino"
+                width="310"
+                height="310">
+              <div class="menu__card-body">
+                <div class="menu__card-info">
+                  <h2 class="menu__card-title">Ice cappuccino</h2>
+                  <p class="menu__card-text">
+                    Cappuccino with soft thick foam in summer version with ice
+                  </p>
+                </div>
+                <p class="menu__card-price">$5.00</p>
+              </div>
+            </li>
+
+            <li class="menu__card">
+              <img
+                class="menu__card-img"
+                src="img/coffee-5.jpg"
+                alt="Espresso"
+                width="310"
+                height="310">
+              <div class="menu__card-body">
+                <div class="menu__card-info">
+                  <h2 class="menu__card-title">Espresso</h2>
+                  <p class="menu__card-text">Classic black coffee</p>
+                </div>
+                <p class="menu__card-price">$4.50</p>
+              </div>
+            </li>
+
+            <li class="menu__card">
+              <img
+                class="menu__card-img"
+                src="img/coffee-6.jpg"
+                alt="Latte"
+                width="310"
+                height="310">
+              <div class="menu__card-body">
+                <div class="menu__card-info">
+                  <h2 class="menu__card-title">Latte</h2>
+                  <p class="menu__card-text">
+                    Espresso coffee with the addition of steamed milk and dense milk foam
+                  </p>
+                </div>
+                <p class="menu__card-price">$5.50</p>
+              </div>
+            </li>
+
+            <li class="menu__card">
+              <img
+                class="menu__card-img"
+                src="img/coffee-7.jpg"
+                alt="Latte macchiato"
+                width="310"
+                height="310">
+              <div class="menu__card-body">
+                <div class="menu__card-info">
+                  <h2 class="menu__card-title">Latte macchiato</h2>
+                  <p class="menu__card-text">Espresso with frothed milk and chocolate</p>
+                </div>
+                <p class="menu__card-price">$5.50</p>
+              </div>
+            </li>
+
+            <li class="menu__card">
+              <img
+                class="menu__card-img"
+                src="img/coffee-8.jpg"
+                alt="Coffee with cognac"
+                width="310"
+                height="310">
+              <div class="menu__card-body">
+                <div class="menu__card-info">
+                  <h2 class="menu__card-title">Coffee with cognac</h2>
+                  <p class="menu__card-text">Fragrant black coffee with cognac and whipped cream</p>
+                </div>
+                <p class="menu__card-price">$6.50</p>
+              </div>
+            </li>
+          </ul>
+          <button class="menu__refresh" type="button" aria-label="Show more items"></button>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact-us">
+      <div class="container">
+        <div class="footer__inner">
+          <div class="footer__offer">
+            <h2 class="footer__title">
+              Sip, Savor, Smile.
+              <span class="footer__title-accent">It’s coffee time!</span>
+            </h2>
+            <ul class="footer__socials">
+              <li>
+                <a
+                  class="footer__social footer__social--twitter"
+                  href="https://twitter.com/"
+                  aria-label="Twitter"
+                  target="_blank"
+                  rel="noopener noreferrer"></a>
+              </li>
+              <li>
+                <a
+                  class="footer__social footer__social--instagram"
+                  href="https://www.instagram.com/"
+                  aria-label="Instagram"
+                  target="_blank"
+                  rel="noopener noreferrer"></a>
+              </li>
+              <li>
+                <a
+                  class="footer__social footer__social--facebook"
+                  href="https://www.facebook.com/"
+                  aria-label="Facebook"
+                  target="_blank"
+                  rel="noopener noreferrer"></a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="footer__info">
+            <h3 class="footer__subtitle">Contact us</h3>
+            <ul class="footer__contacts">
+              <li>
+                <a
+                  class="footer__link footer__link--address"
+                  href="https://www.google.com/maps/search/?api=1&query=8558+Green+Rd.,+LA"
+                  target="_blank"
+                  rel="noopener noreferrer">
+                  <img src="img/icons/pin-alt.svg" alt="" width="20" height="20">
+                  8558 Green Rd., LA
+                </a>
+              </li>
+              <li>
+                <a class="footer__link footer__link--phone" href="tel:+16035550123">
+                  <img src="img/icons/phone.svg" alt="" width="20" height="20">
+                  +1 (603) 555-0123
+                </a>
+              </li>
+              <li>
+                <p class="footer__link footer__link--hours">
+                  <img src="img/icons/clock.svg" alt="" width="20" height="20">
+                  Mon–Sat: 9:00–23:00
+                </p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="js/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,173 @@
+// Choose your favorite coffee
+
+.choose {
+  --choose-text: #403f3d;
+  --choose-line: #665f55; // рамка стрелок и активная точка
+  --choose-dot: #c1b6ad; // неактивная точка
+
+  margin-top: 100px; // между секциями в макете 100px
+  color: var(--choose-text);
+}
+
+[data-theme="dark"] .choose {
+  --choose-text: #e1d4c9;
+  --choose-line: #c1b6ad;
+  --choose-dot: #665f55;
+}
+
+.choose__title {
+  margin: 0 0 40px;
+  font-family: var(--main-font);
+  font-weight: 600;
+  font-size: 60px;
+  line-height: 1.25;
+  text-align: center;
+}
+
+// «favorite» — курсив и акцентный цвет
+.choose__title-accent {
+  font-style: italic;
+  color: #b0907a;
+}
+
+// Ряд: стрелка — слайды — стрелка
+.choose__slider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+}
+
+.choose__arrow {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  padding: 0;
+  border: 1px solid var(--choose-line);
+  border-radius: 100px;
+  background-color: transparent;
+  color: var(--choose-text);
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+
+  // Иконка — маска из svg, поэтому её цвет задаётся через color
+  &::before {
+    content: "";
+    width: 24px;
+    height: 24px;
+    background-color: currentColor;
+    mask-repeat: no-repeat;
+    mask-position: center;
+    mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    -webkit-mask-size: contain;
+  }
+
+  &--prev::before {
+    mask-image: url(../img/icons/arrow-left.svg);
+    -webkit-mask-image: url(../img/icons/arrow-left.svg);
+  }
+
+  &--next::before {
+    mask-image: url(../img/icons/arrow-right.svg);
+    -webkit-mask-image: url(../img/icons/arrow-right.svg);
+  }
+
+  &:hover {
+    border-color: #665f55;
+    background-color: #665f55;
+    color: #e1d4c9;
+  }
+}
+
+.choose__viewport {
+  flex: 1 0 0;
+  min-width: 480px;
+  max-width: 1152px;
+  overflow: hidden;
+}
+
+.choose__track {
+  display: flex;
+  transform: translateX(calc(var(--slide, 0) * -100%));
+  transition: transform 0.5s ease;
+}
+
+.choose__slide {
+  display: flex;
+  flex: 0 0 100%;
+  justify-content: center;
+}
+
+.choose__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: 480px;
+  max-width: 100%;
+}
+
+.choose__img {
+  display: block;
+  width: 480px;
+  max-width: 100%;
+  height: 480px;
+  object-fit: cover;
+}
+
+.choose__description {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  text-align: center;
+}
+
+.choose__name,
+.choose__price {
+  margin: 0;
+  font-family: var(--main-font);
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.25;
+}
+
+.choose__text {
+  margin: 0;
+  font-family: var(--main-font);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+// Точки-переключатели
+.choose__controls {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 40px;
+}
+
+.choose__dot {
+  width: 40px;
+  height: 4px;
+  padding: 0;
+  border: 0;
+  border-radius: 100px;
+  background-color: var(--choose-dot);
+  cursor: pointer;
+
+  &[aria-current="true"] {
+    background-color: var(--choose-line);
+    cursor: default;
+  }
+}

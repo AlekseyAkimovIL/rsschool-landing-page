@@ -1,0 +1,171 @@
+// Footer
+
+.footer {
+  --footer-bg: #665f55;
+  --footer-line: #c1b6ad; // рамка соцсетей
+
+  margin-top: 100px; // между секциями в макете 100px
+  padding-bottom: 40px; // под футером в макете 40px (padding надёжнее margin: не пропадает у последнего блока)
+}
+
+[data-theme="dark"] .footer {
+  --footer-bg: #403f3d;
+  --footer-line: #665f55;
+}
+
+.footer__inner {
+  display: flex;
+  align-items: center;
+  gap: 100px;
+  padding: 100px;
+  border-radius: 40px;
+  background-color: var(--footer-bg);
+  color: #e1d4c9;
+  transition: background-color 0.3s ease;
+}
+
+// Две колонки одинаковой ширины
+.footer__offer,
+.footer__info {
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  justify-content: center;
+  gap: 40px;
+  min-width: 0;
+}
+
+.footer__title {
+  margin: 0;
+  font-family: var(--main-font);
+  font-weight: 600;
+  font-size: 60px;
+  line-height: 1.25;
+}
+
+// «It’s coffee time!» — курсив и акцентный цвет
+.footer__title-accent {
+  font-style: italic;
+  color: #b0907a;
+}
+
+// Соцсети
+.footer__socials {
+  display: flex;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.footer__social {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border: 1px solid var(--footer-line);
+  border-radius: 100px;
+  color: #e1d4c9;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+
+  // Иконка — маска из svg, поэтому её цвет задаётся через color
+  &::before {
+    content: "";
+    width: 24px;
+    height: 24px;
+    background-color: currentColor;
+    mask-repeat: no-repeat;
+    mask-position: center;
+    mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    -webkit-mask-size: contain;
+  }
+
+  &--twitter::before {
+    mask-image: url(../img/icons/twitter.svg);
+    -webkit-mask-image: url(../img/icons/twitter.svg);
+  }
+
+  &--instagram::before {
+    mask-image: url(../img/icons/instagram.svg);
+    -webkit-mask-image: url(../img/icons/instagram.svg);
+  }
+
+  &--facebook::before {
+    mask-image: url(../img/icons/facebook.svg);
+    -webkit-mask-image: url(../img/icons/facebook.svg);
+  }
+
+  &:hover {
+    border-color: #e1d4c9;
+    background-color: #e1d4c9;
+    color: #403f3d;
+  }
+}
+
+.footer__subtitle {
+  margin: 0;
+  font-family: var(--main-font);
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.25;
+}
+
+// Контакты
+.footer__contacts {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+// Высота пункта 28px: 24px текст + 4px под линию (как ссылки в шапке)
+.footer__link {
+  position: relative;
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin: 0;
+  padding-bottom: 4px;
+  font-family: var(--main-font);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.5;
+  color: inherit;
+  text-decoration: none;
+  white-space: nowrap;
+
+  // Иконка 20px: цвет самого svg (#e1d4c9) совпадает с цветом текста в футере
+  img {
+    display: block;
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+  }
+
+  // Подчёркивание 2px при наведении — только у настоящих ссылок
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -1px;
+    height: 2px;
+    background-color: currentColor;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+
+  &:any-link:hover::after,
+  &:any-link:focus-visible::after {
+    opacity: 1;
+  }
+}

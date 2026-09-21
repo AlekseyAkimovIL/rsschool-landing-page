@@ -1,0 +1,69 @@
+// Hero
+
+.hero__inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 644px;
+  padding: 100px;
+  border-radius: 40px;
+  background: url(../img/img-hero.jpg) center / cover no-repeat;
+}
+
+.hero__offer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 40px;
+  width: 530px;
+  max-width: 100%;
+}
+
+.hero__title {
+  margin: 0;
+  font-family: var(--main-font);
+  font-weight: 600;
+  font-size: 72px;
+  line-height: 1.05;
+  color: #e1d4c9;
+}
+
+.hero__title-accent {
+  font-style: italic;
+  color: #b0907a;
+}
+
+.hero__text {
+  margin: 0;
+  font-family: var(--main-font);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #e1d4c9;
+}
+
+.hero__button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 200px;
+  padding: 20px 0;
+  border-radius: 100px;
+  background-color: #e1d4c9;
+  font-family: var(--main-font);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #403f3d;
+  text-decoration: none;
+}
+
+.hero__button-icon {
+  display: none;
+}
+
+.hero__button:hover .hero__button-icon,
+.hero__button:focus-visible .hero__button-icon {
+  display: block;
+}
