@@ -138,7 +138,7 @@ $mobile: 767px;
     position: fixed;
     inset: 0;
     z-index: 1;
-    display: none;
+    display: flex;
     flex: none;
     flex-direction: column;
     align-items: center;
@@ -146,6 +146,14 @@ $mobile: 767px;
     padding: 140px 40px 80px;
     overflow-y: auto;
     background-color: #e1d4c9;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(-12px);
+    transition:
+      opacity 0.3s ease,
+      visibility 0.3s ease,
+      transform 0.3s ease;
   }
 
   [data-theme="dark"] .header__nav {
@@ -153,7 +161,10 @@ $mobile: 767px;
   }
 
   .header--menu-open .header__nav {
-    display: flex;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
   }
 
   body.is-menu-open {
