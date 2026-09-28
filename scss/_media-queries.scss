@@ -22,8 +22,7 @@ $mobile: 767px;
 
 .header__burger,
 .header__item--menu,
-.hero__button-icon,
-.menu__refresh {
+.hero__button-icon {
   display: none;
 }
 
@@ -233,14 +232,10 @@ $mobile: 767px;
   .menu__title {
     max-width: none;
   }
+}
 
-  .menu__grid:not(.is-expanded) .menu__card:nth-child(n + 5) {
-    display: none;
-  }
-
-  .menu__refresh:not([hidden]) {
-    display: flex;
-  }
+.menu__refresh:not([hidden]) {
+  display: flex;
 }
 
 .menu__refresh {

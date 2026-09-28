@@ -104,10 +104,14 @@ if (chooseSlider) {
 const menuGrid = document.querySelector(".menu__grid");
 const menuRefresh = document.querySelector(".menu__refresh");
 const menuTabs = document.querySelectorAll(".menu__tab");
-const CATALOG_INITIAL_COUNT = 8;
+const catalogBreakpoint = window.matchMedia("(max-width: 1024px)");
 
 let activeCategory = "coffee";
 let isExpanded = false;
+
+function getInitialCount() {
+  return catalogBreakpoint.matches ? 4 : Infinity;
+}
 
 function formatPrice(value) {
   return `$${value.toFixed(2)}`;
@@ -137,12 +141,13 @@ function renderCatalog() {
   if (!menuGrid) return;
 
   const items = PRODUCTS.filter((product) => product.category === activeCategory);
-  const visible = isExpanded ? items : items.slice(0, CATALOG_INITIAL_COUNT);
+  const initialCount = getInitialCount();
+  const visible = isExpanded ? items : items.slice(0, initialCount);
 
   menuGrid.innerHTML = visible.map(renderCard).join("");
 
   if (menuRefresh) {
-    const hasMore = items.length > CATALOG_INITIAL_COUNT && !isExpanded;
+    const hasMore = items.length > initialCount && !isExpanded;
     menuRefresh.hidden = !hasMore;
   }
 }
@@ -185,6 +190,11 @@ if (menuGrid && typeof PRODUCTS !== "undefined") {
     if (!card) return;
     e.preventDefault();
     if (typeof window.openModal === "function") window.openModal(card.dataset.id);
+  });
+
+  catalogBreakpoint.addEventListener("change", () => {
+    isExpanded = false;
+    renderCatalog();
   });
 
   renderCatalog();
